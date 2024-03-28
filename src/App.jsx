@@ -19,6 +19,10 @@ import Main from "./pages/Main";
 // Actions
 import { logoutAction } from "./actions/logoutAction";
 
+// Library (?)
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Rootlayout />} loader={rootLoader}>
@@ -38,6 +42,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer pauseOnFocusLoss={false} draggable={true} />
     </>
   );
 }
