@@ -6,7 +6,7 @@ import { fetchData } from "../helpers";
 export default function Rootlayout() {
   const { userName } = useLoaderData();
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between overflow-hidden">
       <div className="max-w-6xl w-full mx-auto p-7 pb-0 ">
         <header>
           <Navbar userName={userName} />

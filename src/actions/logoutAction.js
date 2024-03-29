@@ -7,5 +7,5 @@ export async function logoutAction() {
     key: "userName",
   });
   toast.success("Your account has been deleted!");
-  return redirect("/");
+  return redirect("/dashboard");
 }
