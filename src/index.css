@@ -27,7 +27,7 @@
     nav a{
      @apply transition-all duration-[200ms] ease-in
     }
-    nav a:hover {
-     /* @apply text-teal-400 underline */
+    input{
+        @apply border-2 border-lightGrey px-2 py-1 rounded focus:outline-none focus:border-primaryGreen
     }
  }

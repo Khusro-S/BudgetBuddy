@@ -14,7 +14,7 @@ import { dashboardAction, dashboardLoader } from "./pages/Dashboard";
 // Pages
 import Dashboard from "./pages/Dashboard";
 import Notfound from "./pages/Notfound";
-import Main from "./pages/Main";
+import Error from "./pages/Error";
 
 // Actions
 import { logoutAction } from "./actions/logoutAction";
@@ -22,14 +22,17 @@ import { logoutAction } from "./actions/logoutAction";
 // Library (?)
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Error from "./pages/Error";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Rootlayout />} loader={rootLoader}>
-      <Route index element={<Main />} />
+    <Route
+      path="/"
+      element={<Rootlayout />}
+      loader={rootLoader}
+      errorElement={<Error />}
+    >
       <Route
-        path="dashboard"
+        index
         element={<Dashboard />}
         loader={dashboardLoader}
         action={dashboardAction}

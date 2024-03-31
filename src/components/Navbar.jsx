@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 export default function Navbar({ userName }) {
   return (
-    <nav className="flex justify-between w-full items-center mb-10 ">
+    <nav className="flex justify-between w-full items-center mb-10 max-md:mb-7">
       <NavLink
         to="/"
         className=" flex items-center rounded hover:ring-2 hover:ring-offset-2 hover:ring-primaryGreen pl-1 pr-2 py-1 active:scale-90"
@@ -27,7 +27,7 @@ export default function Navbar({ userName }) {
           <div className="ring-offset-2 hover:ring-2 hover:ring-red-400 rounded  transition-all ease-linear duration-200 active:scale-90">
             <button
               type="submit"
-              className="text-red-400 border border-red-400 px-2 py-1 rounded bg-red-100 hover:bg-red-400 hover:text-white hover:ring-white hover:ring-2  transition-all ease-linear duration-200"
+              className="text-red-400 border-2 border-red-400 px-2 py-1 rounded bg-red-100 hover:bg-red-400 hover:text-white hover:ring-white hover:ring-2  transition-all ease-linear duration-200"
             >
               Delete User
             </button>
