@@ -24,14 +24,12 @@ export default function Navbar({ userName }) {
             }
           }}
         >
-          <div className="ring-offset-2 hover:ring-2 hover:ring-red-400 rounded  transition-all ease-linear duration-200 active:scale-90">
-            <button
-              type="submit"
-              className="text-red-400 border-2 border-red-400 px-2 py-1 rounded bg-red-100 hover:bg-red-400 hover:text-white hover:ring-white hover:ring-2  transition-all ease-linear duration-200"
-            >
-              Delete User
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="text-red-400 border-2 border-red-400 px-2 py-1 rounded bg-red-100 hover:bg-red-400 hover:text-white hover:ring-offset-2 hover:ring-2 hover:ring-red-400  transition-all ease-linear duration-200 active:scale-90"
+          >
+            Delete User
+          </button>
         </Form>
       )}
     </nav>

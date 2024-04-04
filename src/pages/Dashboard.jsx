@@ -2,37 +2,46 @@
 import { useLoaderData } from "react-router-dom";
 
 // helper functions
-import { createBudget, fetchData, waait } from "../helpers";
+import { createBudget, createExpense, fetchData, waait } from "../helpers";
 
 // components
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
+import AddExpenseForm from "../components/AddExpenseForm";
 
 // library imports
 import { toast } from "react-toastify";
 
 export default function Dashboard() {
   const { userName, budgets } = useLoaderData();
+
   return (
     <>
       {userName ? (
         <div className="grid place-items-start w-full gap-6">
-          <h1 className="text-5xl">
+          <h1 className="text-5xl animate-fadeInTop">
             Welcome back <span className="text-primaryGreen">{userName}</span>
           </h1>
-          <div className="flex flex-col gap-1">
-            <p className="text-xl">
-              Personal budgeting is the secret to financial freedom.
-            </p>
-            <p className="text-xl">Create a budget to get started!</p>
-          </div>
+
           <div className="grid gap-5 w-full">
-            {/* {budgets ? () : ()} */}
-            <div className="grid gap-6 w-full">
-              <div className="flex flex-wrap items-start gap-6">
-                <AddBudgetForm />
+            {budgets && budgets.length > 0 ? (
+              <div className="grid gap-5 w-full">
+                <div className="flex flex-wrap items-start gap-6">
+                  <AddBudgetForm />
+                  <AddExpenseForm budgets={budgets} />
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="grid gap-5 w-full">
+                <div className="flex flex-col gap-1 text-xl animate-fadeInRight">
+                  <p>Personal budgeting is the secret to financial freedom.</p>
+                  <p>Create a budget to get started!</p>
+                </div>
+                <div className="flex flex-wrap items-start gap-6">
+                  <AddBudgetForm />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       ) : (
@@ -75,6 +84,20 @@ export async function dashboardAction({ request }) {
       return toast.success("Budget created!");
     } catch (e) {
       throw new Error("There was a problem creating your budget.");
+    }
+  }
+
+  // create expense
+  if (_action === "createExpense") {
+    try {
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      });
+      return toast.success(`Expense ${values.newExpense} created`);
+    } catch (e) {
+      throw new Error("There was a problem creating your Expense");
     }
   }
 

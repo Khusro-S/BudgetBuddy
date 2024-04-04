@@ -16,7 +16,7 @@ export default function AddBudgetForm() {
   }, [isSubmitting]);
 
   return (
-    <div className="border-2 border-dotted border-black rounded-lg px-5 py-3 flex flex-col grow shrink basis-[48%] max-w-[800px]">
+    <div className="border-2 border-dotted border-black rounded-lg px-5 py-3 shadow-primary flex flex-col grow shrink basis-[48%] max-w-[800px] min-w-[320px] animate-slideInLeft">
       <h2 className="text-2xl">Create budget</h2>
       <fetcher.Form
         method="post"
