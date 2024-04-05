@@ -6,11 +6,13 @@ export default {
       colors: {
         primaryGreen: "#52b788",
         secondaryGreen: "#74c69d",
+        tableGreen: "#74c69d1c",
         lightGrey: "#dad7cd",
+        accent: "hsl(var(--color-accent))",
       },
 
       boxShadow: {
-        primary: "10px -10px 40px #d9d9d9, -10px 10px 40px #ffffff",
+        primary: "20px 20px 30px #bebebe, -20px -20px 30px #ffffff",
       },
 
       keyframes: {

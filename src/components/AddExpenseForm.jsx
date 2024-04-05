@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
 
 export default function AddExpenseForm({ budgets }) {
@@ -11,8 +11,8 @@ export default function AddExpenseForm({ budgets }) {
     if (!isSubmitting) {
       formRef.current.value = "";
       focusRef.current.value = "";
-      // focusRef.current.reset();
       focusRef.current.focus();
+      // focusRef.current.reset();
     }
   }, [isSubmitting]);
 
