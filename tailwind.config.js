@@ -43,7 +43,7 @@ export default {
           "0%": {
             opacity: "0",
             // filter: "blur(5px)",
-            transform: "translateX(-40%)",
+            transform: "translateX(-20%)",
           },
           "100%": {
             opacity: "1",
@@ -56,7 +56,7 @@ export default {
           "0%": {
             opacity: "0",
             // filter: "blur(5px)",
-            transform: "translateX(40%)",
+            transform: "translateX(20%)",
           },
           "100%": {
             opacity: "1",

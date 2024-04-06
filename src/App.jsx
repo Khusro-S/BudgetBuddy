@@ -9,15 +9,17 @@ import {
 import Rootlayout, { rootLoader } from "./layouts/Rootlayout";
 
 // Loaders
-import { dashboardAction, dashboardLoader } from "./pages/Dashboard";
-
+import { dashboardLoader } from "./pages/Dashboard";
+import { expensesLoader } from "./components/ExpensesPage";
 // Pages
 import Dashboard from "./pages/Dashboard";
 import Notfound from "./pages/Notfound";
 import Error from "./pages/Error";
+import ExpensesPage from "./components/ExpensesPage";
 
 // Actions
 import { logoutAction } from "./actions/logoutAction";
+import { dashboardAction } from "./pages/Dashboard";
 
 // Library (?)
 import { ToastContainer } from "react-toastify";
@@ -38,6 +40,13 @@ const router = createBrowserRouter(
         action={dashboardAction}
         errorElement={<Error />}
       />
+
+      <Route
+        path="expenses"
+        element={<ExpensesPage />}
+        loader={expensesLoader}
+      />
+
       <Route path="logout" action={logoutAction} />
 
       <Route path="*" element={<Notfound />} />

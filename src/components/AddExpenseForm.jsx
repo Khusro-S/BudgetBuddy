@@ -17,7 +17,7 @@ export default function AddExpenseForm({ budgets }) {
   }, [isSubmitting]);
 
   return (
-    <div className="border-2 border-dotted border-black rounded-lg px-5 py-3 shadow-primary flex flex-col grow shrink basis-[48%] max-w-[800px] min-w-[320px] animate-slideInRight">
+    <div className="border-2 border-dashed border-primaryGreen rounded-lg px-5 py-3 shadow-primary flex flex-col grow shrink basis-[48%] max-w-[800px] min-w-[320px] animate-slideInRight">
       <h2 className="text-2xl">
         Add New{" "}
         <span className="text-primaryGreen">
@@ -89,7 +89,7 @@ export default function AddExpenseForm({ budgets }) {
         <button
           disabled={isSubmitting}
           type="submit"
-          className="bg-primaryGreen px-2 py-1 rounded text-white hover:ring-offset-2 hover:ring-2 hover:ring-primaryGreen transition-all ease-linear duration-200 active:scale-90 place-self-start disabled:opacity-70 disabled:hover:ring-0"
+          className="bg-primaryGreen px-2 py-1 rounded text-white hover:ring-offset-2 hover:ring-2 hover:ring-primaryGreen transition-all ease-linear duration-200 active:scale-90 place-self-start disabled:opacity-70 disabled:hover:ring-0 mb-2"
         >
           {isSubmitting ? "Adding expense..." : "Add expense"}
         </button>

@@ -7,7 +7,7 @@ export default function Rootlayout() {
   const { userName } = useLoaderData();
   return (
     <div className="min-h-screen flex flex-col justify-between overflow-hidden">
-      <div className="max-w-6xl w-full mx-auto p-7 pb-0 ">
+      <div className="max-w-[80rem] w-full mx-auto p-7 pb-0 ">
         <header>
           <Navbar userName={userName} />
         </header>
