@@ -6,8 +6,8 @@ export default function Table({ expenses }) {
       <table className="w-full">
         <thead className="animate-slideInTop">
           <tr>
-            {["Name", "Amount", "Date"].map((i, index) => (
-              <th key={index} className="w-1/3 px-5 text-xl h-12">
+            {["Name", "Amount", "Date", "Budget", ""].map((i, index) => (
+              <th key={index} className=" px-5 text-xl h-12">
                 {i}
               </th>
             ))}
@@ -24,10 +24,7 @@ export default function Table({ expenses }) {
                   : `animate-slideInLeft`
               }
             >
-              <ExpenseItem
-                expense={expense}
-                index={index % 2 === 0 && "text-white"}
-              />
+              <ExpenseItem expense={expense} />
             </tr>
           ))}
         </tbody>

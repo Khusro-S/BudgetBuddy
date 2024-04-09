@@ -10,7 +10,7 @@ import Rootlayout, { rootLoader } from "./layouts/Rootlayout";
 
 // Loaders
 import { dashboardLoader } from "./pages/Dashboard";
-import { expensesLoader } from "./components/ExpensesPage";
+import { expensesAction, expensesLoader } from "./components/ExpensesPage";
 // Pages
 import Dashboard from "./pages/Dashboard";
 import Notfound from "./pages/Notfound";
@@ -45,6 +45,7 @@ const router = createBrowserRouter(
         path="expenses"
         element={<ExpensesPage />}
         loader={expensesLoader}
+        action={expensesAction}
       />
 
       <Route path="logout" action={logoutAction} />

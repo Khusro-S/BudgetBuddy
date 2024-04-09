@@ -1,4 +1,5 @@
 import { Link, useRouteError } from "react-router-dom";
+import errorImage from "../assets/error.svg";
 
 export default function Error() {
   const error = useRouteError();
@@ -6,7 +7,7 @@ export default function Error() {
   return (
     <div className="flex justify-center items-center max-md:flex-col ">
       <img
-        src="src/assets/error.svg"
+        src={errorImage}
         alt="error image"
         className="w-1/2 max-sm:w-[60%]"
       />

@@ -1,6 +1,7 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { fetchData } from "../helpers";
+import { deleteItem, fetchData } from "../helpers";
 import Table from "./Table";
+import { toast } from "react-toastify";
 
 export default function ExpensesPage() {
   const { expenses } = useLoaderData();
@@ -18,11 +19,11 @@ export default function ExpensesPage() {
             <Table expenses={expenses} />
           </div>
         ) : (
-          <p>Sorry &rbrace; no expenses to show</p>
+          <p>Sorry, no expenses to show</p>
         )}
 
         <Link
-          className="px-2 py-1 bg-primaryGreen rounded text-white hover:ring-2 hover:ring-offset-2 hover:ring-primaryGreen place-self-center transition-all duration-200 ease-linear active:scale-90 animate-slideInBottom"
+          className="px-2 py-1 bg-primaryGreen rounded shadow-xl text-white hover:ring-2 hover:ring-offset-2 hover:ring-primaryGreen place-self-center transition-all duration-200 ease-linear active:scale-90 animate-slideInBottom"
           onClick={() => navigate(-1)}
         >
           Go Back
@@ -32,7 +33,24 @@ export default function ExpensesPage() {
   );
 }
 
-export function expensesLoader() {
+export async function expensesLoader() {
   const expenses = fetchData("expenses");
   return { expenses };
+}
+
+export async function expensesAction({ request }) {
+  const data = await request.formData();
+  const { _action, ...values } = Object.fromEntries(data);
+
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+      return toast.success("Expense deleted!");
+    } catch (e) {
+      throw new Error("There was a problem deleting your Expense");
+    }
+  }
 }

@@ -2,7 +2,13 @@
 import { Link, useLoaderData } from "react-router-dom";
 
 // helper functions
-import { createBudget, createExpense, fetchData, waait } from "../helpers";
+import {
+  createBudget,
+  createExpense,
+  deleteItem,
+  fetchData,
+  waait,
+} from "../helpers";
 
 // components
 import Intro from "../components/Intro";
@@ -59,7 +65,7 @@ export default function Dashboard() {
                     {expenses.length > 8 && (
                       <Link
                         to="expenses"
-                        className="px-2 py-1 bg-primaryGreen text-white hover:ring-offset-2 hover:ring-primaryGreen hover:ring-2 rounded transition-all duration-200 ease-linear active:scale-90 place-self-center mb-5"
+                        className="px-2 py-1 bg-primaryGreen shadow-xl text-white hover:ring-offset-2 hover:ring-primaryGreen hover:ring-2 rounded transition-all duration-200 ease-linear active:scale-90 place-self-center mb-5"
                       >
                         View all expenses
                       </Link>
@@ -135,6 +141,19 @@ export async function dashboardAction({ request }) {
       return toast.success(`Expense ${values.newExpense} created`);
     } catch (e) {
       throw new Error("There was a problem creating your Expense");
+    }
+  }
+
+  // delete expense
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+      return toast.success("Expense deleted!");
+    } catch (e) {
+      throw new Error("There was a problem deleting your Expense");
     }
   }
 
