@@ -9,6 +9,7 @@ export default {
         tableGreen: "#74c69d1c",
         lightGrey: "#dad7cd",
         accent: "hsl(var(--color-accent))",
+        tableAccent: "hsl(var(--color-accent)/0.05)",
       },
 
       boxShadow: {

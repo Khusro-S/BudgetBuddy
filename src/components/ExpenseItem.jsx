@@ -5,7 +5,7 @@ import {
   getAllMatchingItems,
 } from "../helpers";
 
-export default function ExpenseItem({ expense }) {
+export default function ExpenseItem({ expense, showBudget }) {
   const budget = getAllMatchingItems({
     category: "budgets",
     key: "id",
@@ -25,15 +25,17 @@ export default function ExpenseItem({ expense }) {
       <td className="text-center  shadow-sm rounded-full">
         {formatDateToLocaleString(expense.createdAt)}
       </td>
-      <td className="text-center shadow-sm rounded-full">
-        <Link
-          style={{ "--color-accent": budget.color }}
-          to={`/budget/${budget.id}`}
-          className="bg-accent px-2 py-1 shadow-xl text-white hover:ring-offset-2 hover:ring-accent hover:ring-2 rounded-full transition-all duration-200 ease-linear active:scale-90 place-self-center mb-5"
-        >
-          {budget.name}
-        </Link>
-      </td>
+      {showBudget && (
+        <td className="text-center shadow-sm rounded-full">
+          <Link
+            style={{ "--color-accent": budget.color }}
+            to={`/budget/${budget.id}`}
+            className="bg-accent px-2 py-1 shadow-xl text-white hover:ring-offset-2 hover:ring-accent hover:ring-2 rounded-full transition-all duration-200 ease-linear active:scale-90 place-self-center mb-5"
+          >
+            {budget.name}
+          </Link>
+        </td>
+      )}
       <td className="text-center  shadow-sm rounded-full ">
         <fetcher.Form method="post" className="text-center">
           <input type="hidden" name="_action" value="deleteExpense" />
