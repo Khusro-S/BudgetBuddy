@@ -2,8 +2,8 @@ import ExpenseItem from "./ExpenseItem";
 
 export default function Table({ expenses, accentColor, showBudget = true }) {
   return (
-    <div>
-      <table className="w-full mb-5">
+    <div className="w-full mb-5 overflow-x-auto">
+      <table className="w-full">
         <thead className="animate-slideInTop">
           <tr>
             {["Name", "Amount", "Date", showBudget ? "Budget" : "", ""].map(

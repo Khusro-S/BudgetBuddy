@@ -3,13 +3,13 @@ import logo from "../assets/logo.png";
 
 export default function Navbar({ userName }) {
   return (
-    <nav className="flex justify-between w-full items-center mb-10 max-md:mb-7">
+    <nav className="flex justify-between w-full items-center mb-10 max-md:mb-7 rounded">
       <NavLink
         to="/"
         className=" flex items-center rounded hover:ring-2 hover:ring-offset-2 hover:ring-primaryGreen pl-1 pr-2 py-1 active:scale-90"
       >
         <img src={logo} alt="Budget Buddy Logo" className="mr-3 w-9" />
-        <h3>
+        <h3 className="max-sm:hidden">
           <span className="text-primaryGreen">Budget</span>Buddy
         </h3>
       </NavLink>
