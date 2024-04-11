@@ -23,7 +23,7 @@ export default function BudgetPage() {
       </h1>
 
       <div className="flex gap-5 flex-wrap items-start">
-        <BudgetItem budget={budget} />
+        <BudgetItem budget={budget} showDelete={true} />
         <AddExpenseForm budgets={[budget]} accentColor={true} />
       </div>
 

@@ -24,6 +24,7 @@ import BudgetPage from "./pages/BudgetPage";
 import { logoutAction } from "./actions/logoutAction";
 import { dashboardAction } from "./pages/Dashboard";
 import { budgetAction } from "./pages/BudgetPage";
+import { deleteBudget } from "./actions/deleteBudget";
 
 // Library (?)
 import { ToastContainer } from "react-toastify";
@@ -59,7 +60,9 @@ const router = createBrowserRouter(
         loader={budgetLoader}
         errorElement={<Error />}
         action={budgetAction}
-      />
+      >
+        <Route path="delete" action={deleteBudget} />
+      </Route>
 
       <Route path="logout" action={logoutAction} />
 

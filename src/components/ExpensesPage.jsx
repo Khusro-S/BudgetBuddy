@@ -21,13 +21,9 @@ export default function ExpensesPage() {
         ) : (
           <p>Sorry, no expenses to show</p>
         )}
-
-        <Link
-          className="px-2 py-1 bg-primaryGreen rounded shadow-xl text-white hover:ring-2 hover:ring-offset-2 hover:ring-primaryGreen place-self-center transition-all duration-200 ease-linear active:scale-90 animate-slideInBottom"
-          onClick={() => navigate(-1)}
-        >
-          Go Back
-        </Link>
+        <button className="px-2 py-1 bg-primaryGreen rounded shadow-xl text-white hover:ring-2 hover:ring-offset-2 hover:ring-primaryGreen place-self-center transition-all duration-200 ease-linear active:scale-90 animate-slideInBottom">
+          <Link onClick={() => navigate(-1)}>Go Back</Link>
+        </button>
       </div>
     </div>
   );

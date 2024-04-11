@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
 
-export default function AddExpenseForm({ budgets, accentColor }) {
+export default function AddExpenseForm({ budgets, accentColor = false }) {
   const fetcher = useFetcher();
   const isSubmitting = fetcher.state === "submitting";
   const formRef = useRef();
@@ -74,8 +74,8 @@ export default function AddExpenseForm({ budgets, accentColor }) {
             name="newExpenseBudget"
             id="newExpenseBudget"
             required
-            className={`px-2 py-1 focus:outline-none border-2 border-solid border-lightGrey relative focus:${
-              accentColor ? "border-accent" : "border-primaryGreen"
+            className={`px-2 py-1 focus:outline-none border-2 border-solid border-lightGrey relative ${
+              accentColor ? "focus:border-accent" : "focus:border-primaryGreen"
             } appearance-none row-start-1 col-start-1 bg-[url('src/assets/down-arrow.png')] bg-no-repeat bg-[center_right_0.5rem] pr-5 rounded peer`}
           >
             {budgets

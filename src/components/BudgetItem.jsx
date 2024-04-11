@@ -1,10 +1,11 @@
+import { Form, Link } from "react-router-dom";
 import {
   calculateSpentByBudget,
   formatCurrency,
   formatPercentage,
 } from "../helpers";
 
-export default function BudgetItem({ budget, animation }) {
+export default function BudgetItem({ budget, animation, showDelete = false }) {
   const { id, name, amount, color } = budget;
   const spent = calculateSpentByBudget(id);
   return (
@@ -29,6 +30,36 @@ export default function BudgetItem({ budget, animation }) {
         <small className="text-accent">{formatCurrency(spent)} spent</small>
         <small>{formatCurrency(amount - spent)} remainging</small>
       </div>
+
+      {showDelete ? (
+        <Form
+          className="place-self-center"
+          method="post"
+          action="delete"
+          onSubmit={(e) => {
+            if (
+              !confirm(
+                "Are you sure you want to permanently delete this budget?"
+              )
+            ) {
+              e.preventDefault();
+            }
+          }}
+        >
+          <button
+            type="submit"
+            className={`my-2 px-2 py-1 bg-accent rounded shadow-xl text-white hover:ring-2 hover:ring-offset-2 hover:ring-accent transition-all duration-200 ease-linear active:scale-90 animate-slideInBottom`}
+          >
+            Delete
+          </button>
+        </Form>
+      ) : (
+        <button
+          className={`my-2 px-2 py-1 bg-accent rounded shadow-xl text-white hover:ring-2 hover:ring-offset-2 hover:ring-accent transition-all duration-200 place-self-center ease-linear active:scale-90 animate-slideInBottom`}
+        >
+          <Link to={`/budget/${id}`}>View Details</Link>
+        </button>
+      )}
     </div>
   );
 }

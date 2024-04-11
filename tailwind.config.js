@@ -13,7 +13,7 @@ export default {
       },
 
       boxShadow: {
-        primary: "20px 20px 30px #bebebe, -20px -20px 30px #ffffff",
+        primary: "5px 5px 9px #b3b3b3, -5px -5px 9px #eeeeee",
       },
 
       keyframes: {
